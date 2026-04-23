@@ -73,9 +73,9 @@ export default function App() {
             className="w-24 h-24 mx-auto mb-6 overflow-hidden rounded-xl border border-zinc-800 bg-black/40 relative shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-10"
           >
             <img 
-              src="https://imgur.com/CZrVcJj.png" 
+              src="https://imgur.com/ZztTy4C.png" 
               alt="CCCA Andebol Logo" 
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] max-w-none object-contain ml-[-5px]"
+              className="w-full h-full object-contain p-2"
               referrerPolicy="no-referrer"
             />
           </motion.div>
