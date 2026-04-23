@@ -24,7 +24,7 @@ async function startServer() {
   console.log("Iniciando o Servidor CCCA Backend...");
   
   const app = express();
-  const PORT = 3000;
+  const PORT = process.env.PORT || 3000;
 
   app.use(express.json());
 
