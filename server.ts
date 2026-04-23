@@ -40,7 +40,7 @@ async function startServer() {
       }
 
       const resend = getResend();
-      const recipientEnv = process.env.RECIPIENT_EMAIL || 'magouveia1982@gmail.com';
+      const recipientEnv = process.env.RECIPIENT_EMAIL || 'formscccaandebol@gmail.com';
       const senderEmail = process.env.SENDER_EMAIL || 'inscricoes@migasapp.net';
       const recipients = recipientEnv.split(',').map(email => email.trim());
 
@@ -54,42 +54,65 @@ async function startServer() {
       else category = "Sub-12";
 
       const htmlContent = `
-        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #000000; padding: 20px; border-radius: 16px; color: #f1f1f1;">
-          <div style="text-align: center; padding: 20px; border-bottom: 1px solid #1f1f23; margin-bottom: 30px;">
-            <img src="https://imgur.com/CZrVcJj.png" alt="CCCA Logo" style="width: 150px; height: auto;" />
-            <h1 style="margin: 15px 0 0 0; font-size: 24px; color: #ffffff; letter-spacing: -1px;">CCCA Andebol</h1>
-            <p style="margin: 5px 0 0 0; color: #3b82f6; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Nova Inscrição Recebida</p>
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #000000; padding: 40px 20px; color: #ffffff;">
+          <!-- Header -->
+          <div style="text-align: center; margin-bottom: 30px;">
+            <img src="https://imgur.com/ZztTy4C.png" alt="CCCA Logo" style="width: 80px; height: auto; margin-bottom: 20px;" />
+            <h1 style="margin: 0; font-size: 28px; font-weight: 700; color: #ffffff; letter-spacing: -0.5px;">CCCA Andebol</h1>
+            <p style="margin: 10px 0 0 0; color: #3b82f6; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">NOVA INSCRIÇÃO RECEBIDA</p>
           </div>
           
-          <div style="background-color: #000000; padding: 30px; border-radius: 12px; border: 1px solid #27272a; box-shadow: 0 4px 6px rgba(0,0,0,0.4);">
-            <div style="margin-bottom: 20px;">
-              <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Atleta / Nome</label>
-              <div style="color: #ffffff; font-size: 18px; font-weight: 600; margin-top: 4px;">${name}</div>
+          <div style="border-top: 1px solid #1f1f23; margin-bottom: 30px; opacity: 0.5;"></div>
+
+          <!-- Card -->
+          <div style="border: 1px solid #1f1f23; border-radius: 12px; padding: 30px; background-color: #050505;">
+            <!-- Atleta -->
+            <div style="margin-bottom: 35px;">
+              <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 8px;">ATLETA / NOME</label>
+              <div style="color: #ffffff; font-size: 24px; font-weight: 700;">${name}</div>
             </div>
 
-            <div style="display: flex; gap: 20px; margin-bottom: 20px;">
-              <div style="flex: 1;">
-                <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Contacto</label>
-                <div style="color: #ffffff; font-size: 16px; font-weight: 500; margin-top: 4px;">${contact}</div>
+            <!-- Row 1 -->
+            <div style="display: table; width: 100%; margin-bottom: 35px;">
+              <div style="display: table-cell; width: 50%; vertical-align: top;">
+                <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 8px;">CONTACTO</label>
+                <div style="color: #ffffff; font-size: 18px; font-weight: 700;">${contact}</div>
               </div>
-              <div style="flex: 1;">
-                <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Escalão</label>
-                <div style="color: #3b82f6; font-size: 16px; font-weight: 700; margin-top: 4px;">${category}</div>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 20px; margin-bottom: 20px;">
-              <div style="flex: 1;">
-                <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Email</label>
-                <div style="margin-top: 4px;"><a href="mailto:${email}" style="color: #ffffff; text-decoration: none; font-size: 15px;">${email}</a></div>
-              </div>
-              <div style="flex: 1;">
-                <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Nascimento</label>
-                <div style="color: #ffffff; font-size: 16px; font-weight: 500; margin-top: 4px;">${new Date(birthDate).toLocaleDateString('pt-PT')}</div>
+              <div style="display: table-cell; width: 50%; vertical-align: top;">
+                <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 8px;">ESCALÃO</label>
+                <div style="color: #3b82f6; font-size: 18px; font-weight: 700;">${category}</div>
               </div>
             </div>
 
-            ${observations ? `<div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #1f1f23;"><label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Observações</label><div style="color: #cccccc; font-size: 14px; margin-top: 8px; font-style: italic; background-color: #0c0c0e; padding: 15px; border-radius: 8px; line-height: 1.5;">${observations}</div></div>` : ''}
+            <!-- Row 2 -->
+            <div style="display: table; width: 100%; margin-bottom: 10px;">
+              <div style="display: table-cell; width: 50%; vertical-align: top;">
+                <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 8px;">EMAIL</label>
+                <div style="color: #ffffff; font-size: 16px;">${email}</div>
+              </div>
+              <div style="display: table-cell; width: 50%; vertical-align: top;">
+                <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 8px;">NASCIMENTO</label>
+                <div style="color: #ffffff; font-size: 18px; font-weight: 700;">${new Date(birthDate).toLocaleDateString('pt-PT')}</div>
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid #1f1f23; margin: 25px 0; opacity: 0.5;"></div>
+
+            <!-- Observações -->
+            <div>
+              <label style="color: #6a6a6d; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 12px;">OBSERVAÇÕES</label>
+              <div style="background-color: #0c0c0e; padding: 20px; border-radius: 8px; border: 1px solid #1f1f23;">
+                <div style="color: #cccccc; font-size: 14px; font-style: italic; line-height: 1.5;">
+                  ${observations || 'Nenhuma observação registada.'}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div style="text-align: center; margin-top: 40px; color: #52525b; font-size: 11px;">
+            <p style="margin: 0;">Este é um e-mail automático do CCCA Andebol.</p>
+            <p style="margin: 6px 0 0 0;">Submetido em: ${new Date().toLocaleString('pt-PT')}</p>
           </div>
         </div>
       `;
