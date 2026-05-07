@@ -40,11 +40,11 @@ export default function App() {
         setFormData({ name: "", email: "", contact: "", birthDate: "", observations: "" });
       } else {
         setStatus("error");
-        setMessage(data.error || "Ocorreu um erro ao enviar.");
+        setMessage("Erro ao enviar. Por favor, envie os dados por email para formscccaandebol@gmail.com");
       }
     } catch (error) {
       setStatus("error");
-      setMessage("Erro de ligação ao servidor.");
+      setMessage("Erro de ligação. Por favor, envie os dados por email para formscccaandebol@gmail.com");
     }
   };
 
@@ -163,12 +163,18 @@ export default function App() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-lg text-sm flex items-center gap-3"
+                className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-lg text-sm flex items-start gap-3 flex-col"
               >
-                <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center shrink-0">
-                   <div className="w-2 h-2 bg-red-400 rounded-full" />
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center shrink-0">
+                     <div className="w-2 h-2 bg-red-400 rounded-full" />
+                  </div>
+                  <span>{message}</span>
                 </div>
-                {message}
+                <div className="text-zinc-400 text-xs mt-1 border-t border-red-500/10 pt-2 w-full">
+                  Em alternativa se o erro persistir, envie a sua inscrição diretamente para: <br />
+                  <a href="mailto:formscccaandebol@gmail.com" className="text-blue-400 underline font-medium">formscccaandebol@gmail.com</a>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
