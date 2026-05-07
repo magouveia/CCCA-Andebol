@@ -40,9 +40,8 @@ async function startServer() {
       }
 
       const resend = getResend();
-      const recipientEnv = process.env.RECIPIENT_EMAIL || 'formscccaandebol@gmail.com';
+      const recipients = ['formscccaandebol@gmail.com'];
       const senderEmail = process.env.SENDER_EMAIL || 'inscricoes@migasapp.net';
-      const recipients = recipientEnv.split(',').map(email => email.trim());
 
       const birthYear = new Date(birthDate).getFullYear();
       let category = "Não Definido";
